@@ -1,3 +1,7 @@
+let 
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -23,6 +27,25 @@ $(function () {
 });
 
 
+const date = new Date()
+let hour = date.getHours()
+let day = date.getDate()
+let month = date.getMonth() + 1
+let year = date.getFullYear()
+let currentDate = `${month}-${day}-${year}`
+$('#currentDay').text(currentDate);
+
+function adjustClass() {
+  if () {
+    
+  }
+  
+}
+
+
+
+
+
 
 // Psuedo code for week 3 challenge:
 
@@ -34,7 +57,7 @@ $(function () {
 // -- we want to use DayJS to display current date
 //    -- set the format HH:MM:SS etc
 //    -- Make sure the DayJS CDN link exists in the HTML file
-//        -- Creat a cariable to get the DayJS data
+//        -- Creat a variable to get the DayJS data
 //    -- set the current time to an element in the HTML
 
 // WHEN I scroll down
