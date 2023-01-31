@@ -1,4 +1,32 @@
-let 
+let container = $('.container-lg');
+let timeSlots = container.children('div');
+
+let array = ["hour-9", "hour-10"]
+
+
+function textbox9(event) {
+//   let capturedText9 = document.getElementById('text9').value
+//  console.log(capturedText9)
+let text = event.target.previousElementSibling.value;
+ localStorage.setItem(event.target.parentElement.id, text)
+ console.log(event.target.parentElement)
+
+}
+
+function showMessage() {
+  //localStorage.getItem('text9')
+  //console.log(localStorage.getItem('text9'))
+  //document.querySelector('#text9').textContent = localStorage.getItem('text9')
+
+  for(let i = 0; i < array.length; i++) {
+    const el = document.getElementById(array[i]);
+    console.log(el)
+    console.log(localStorage.getItem(array[i]))
+
+    // textarea.value = localStorage.getItem(array[i])
+  }
+}
+
 
 
 
@@ -27,20 +55,40 @@ $(function () {
 });
 
 
-const date = new Date()
-let hour = date.getHours()
-let day = date.getDate()
-let month = date.getMonth() + 1
-let year = date.getFullYear()
-let currentDate = `${month}-${day}-${year}`
+const date = new Date();
+let hour = date.getHours();
+let day = date.getDate();
+let month = date.getMonth() + 1;;
+let year = date.getFullYear();
+let currentDate = `${month}-${day}-${year}`;
 $('#currentDay').text(currentDate);
 
-function adjustClass() {
-  if () {
-    
+
+
+
+function changeColor() {
+  for (let index = 0; index < timeSlots.length; index++) {
+    let currentDiv = $(timeSlots.get(index));
+    let currentDivClass = currentDiv.attr('id').slice(5);
+    if (currentDivClass == hour) {
+      currentDiv.addClass('present');
+    } else if (currentDivClass < hour) {
+      currentDiv.addClass('past');
+    } else if (currentDivClass > hour) {
+      currentDiv.addClass('future');
+    }
   }
-  
 }
+
+function init() {
+  changeColor();
+  showMessage();
+}
+init();
+
+
+
+
 
 
 
