@@ -1,7 +1,7 @@
 let container = $('.container-lg');
 let timeSlots = container.children('div');
 
-let array = ["hour-9", "hour-10"]
+let array = ["hour-9", "hour-10", "hour-11", "hour-12", "hour-13", "hour-14", "hour-15", "hour-16", "hour-17"]
 
 
 function textbox9(event) {
@@ -13,19 +13,19 @@ let text = event.target.previousElementSibling.value;
 
 }
 
-function showMessage() {
-  //localStorage.getItem('text9')
-  //console.log(localStorage.getItem('text9'))
-  //document.querySelector('#text9').textContent = localStorage.getItem('text9')
+// function showMessage() {
+//   //localStorage.getItem('text9')
+//   //console.log(localStorage.getItem('text9'))
+//   //document.querySelector('#text9').textContent = localStorage.getItem('text9')
 
-  for(let i = 0; i < array.length; i++) {
-    const el = document.getElementById(array[i]);
-    console.log(el)
-    console.log(localStorage.getItem(array[i]))
+//   for(let i = 0; i < array.length; i++) {
+//     const el = document.getElementById(array[i]);
+//     console.log(el)
+//     console.log(localStorage.getItem(array[i]))
 
-    // textarea.value = localStorage.getItem(array[i])
-  }
-}
+//     textarea.val = localStorage.getItem(array[i])
+//   }
+// }
 
 
 
@@ -63,7 +63,17 @@ let year = date.getFullYear();
 let currentDate = `${month}-${day}-${year}`;
 $('#currentDay').text(currentDate);
 
-
+function updateTasks() {
+  $('#hour-9 .description').val(localStorage.getItem('hour-9'))
+  $('#hour-10 .description').val(localStorage.getItem('hour-10'))
+  $('#hour-11 .description').val(localStorage.getItem('hour-11'))
+  $('#hour-12 .description').val(localStorage.getItem('hour-12'))
+  $('#hour-13 .description').val(localStorage.getItem('hour-13'))
+  $('#hour-14 .description').val(localStorage.getItem('hour-14'))
+  $('#hour-15 .description').val(localStorage.getItem('hour-15'))
+  $('#hour-16 .description').val(localStorage.getItem('hour-16'))
+  $('#hour-17 .description').val(localStorage.getItem('hour-17'))
+}
 
 
 function changeColor() {
@@ -82,7 +92,8 @@ function changeColor() {
 
 function init() {
   changeColor();
-  showMessage();
+  //showMessage();
+  updateTasks();
 }
 init();
 
